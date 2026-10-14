@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Night Palette (Deep Slate / Dark Flat) -->
+    <color name="bg_canvas">#0B0F19</color>
+    <color name="surface_card">#111827</color>
+    <color name="surface_variant">#1E293B</color>
+    <color name="color_border">#334155</color>
+    <color name="color_border_focus">#60A5FA</color>
+
+    <color name="text_primary">#F8FAFC</color>
+    <color name="text_secondary">#94A3B8</color>
+    <color name="text_muted">#64748B</color>
+
+    <color name="primary">#F8FAFC</color>
+    <color name="on_primary">#0F172A</color>
+    <color name="accent_blue">#3B82F6</color>
+    <color name="accent_blue_light">#1E3A8A</color>
+    <color name="accent_red">#EF4444</color>
+    <color name="accent_red_light">#7F1D1D</color>
+    <color name="accent_green">#22C55E</color>
+    <color name="accent_gold">#F59E0B</color>
+    <color name="highlighter_yellow">#66FEF08A</color>
+
+    <color name="checker_light">#1E293B</color>
+    <color name="checker_dark">#0F172A</color>
+</resources>

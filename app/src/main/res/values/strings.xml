@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">PDF Editor</string>
+    <string name="open_pdf">Buka PDF</string>
+    <string name="no_pdf_loaded">Pilih dokumen PDF untuk mulai membaca dan mengedit</string>
+    <string name="tool_signature">Tanda Tangan</string>
+    <string name="tool_text">Teks</string>
+    <string name="tool_whiteout">Whiteout</string>
+    <string name="tool_pen">Pena</string>
+    <string name="tool_highlight">Stabilo</string>
+    <string name="tool_shape">Kotak</string>
+    <string name="tool_page_manager">Halaman</string>
+    <string name="save_pdf">Simpan PDF</string>
+    <string name="share_pdf">Bagikan</string>
+
+    <string name="signature_title">Bubuhkan Tanda Tangan</string>
+    <string name="tab_draw">Gambar Langsung</string>
+    <string name="tab_import">Import Gambar</string>
+    <string name="clear_pad">Hapus</string>
+    <string name="choose_image">Pilih Gambar (PNG / JPG)</string>
+    <string name="remove_white_bg">Hapus Background Putih (JPG/PNG)</string>
+    <string name="white_sensitivity">Sensitivitas Putih</string>
+    <string name="apply_signature">Pasang Tanda Tangan</string>
+    <string name="cancel">Batal</string>
+    <string name="ok">OK</string>
+    <string name="insert_text_hint">Ketik teks anotasi di sini…</string>
+    <string name="font_size">Ukuran Huruf</string>
+    <string name="delete">Hapus</string>
+    <string name="rotate_page">Putar Halaman (90°)</string>
+    <string name="delete_page">Hapus Halaman Ini</string>
+    <string name="exporting_pdf">Menyimpan dokumen PDF…</string>
+    <string name="pdf_saved_success">PDF berhasil disimpan!</string>
+</resources>

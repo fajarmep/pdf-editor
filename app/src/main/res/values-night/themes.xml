@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.PDFEditor" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorSecondary">@color/accent_blue</item>
+        <item name="android:windowBackground">@color/bg_canvas</item>
+        <item name="colorSurface">@color/surface_card</item>
+        <item name="colorSurfaceVariant">@color/surface_variant</item>
+        <item name="android:statusBarColor">@color/bg_canvas</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.PDFEditor.ZeroCorner</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.PDFEditor.ZeroCorner</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.PDFEditor.ZeroCorner</item>
+
+        <item name="materialButtonStyle">@style/Widget.PDFEditor.Button</item>
+        <item name="materialButtonOutlinedStyle">@style/Widget.PDFEditor.Button.Outlined</item>
+        <item name="materialCardViewStyle">@style/Widget.PDFEditor.Card</item>
+    </style>
+</resources>

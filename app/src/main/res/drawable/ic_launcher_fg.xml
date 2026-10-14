@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Document Body -->
+    <path
+        android:fillColor="#1E293B"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.5"
+        android:strokeLineJoin="miter"
+        android:pathData="M37,32 L59,32 L69,42 L69,76 L37,76 Z" />
+
+    <!-- Corner Fold -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:pathData="M59,32 L59,42 L69,42 Z" />
+
+    <!-- Document Lines -->
+    <path
+        android:strokeColor="#94A3B8"
+        android:strokeWidth="2"
+        android:strokeLineCap="square"
+        android:pathData="M43,48 L53,48 M43,54 L63,54 M43,60 L57,60" />
+
+    <!-- Signature Stroke / Quill Accent (Gold / Red) -->
+    <path
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M43,68 C47,64 51,72 55,68 C58,65 62,67 65,65" />
+</vector>

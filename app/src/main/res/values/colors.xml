@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Day Palette (Slate / Modern Flat) -->
+    <color name="bg_canvas">#F8FAFC</color>
+    <color name="surface_card">#FFFFFF</color>
+    <color name="surface_variant">#F1F5F9</color>
+    <color name="color_border">#CBD5E1</color>
+    <color name="color_border_focus">#2563EB</color>
+
+    <color name="text_primary">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_muted">#94A3B8</color>
+
+    <color name="primary">#0F172A</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="accent_blue">#2563EB</color>
+    <color name="accent_blue_light">#DBEAFE</color>
+    <color name="accent_red">#DC2626</color>
+    <color name="accent_red_light">#FEE2E2</color>
+    <color name="accent_green">#16A34A</color>
+    <color name="accent_gold">#D97706</color>
+    <color name="highlighter_yellow">#66FEF08A</color>
+
+    <!-- Checkerboard pattern colors for transparent preview -->
+    <color name="checker_light">#E2E8F0</color>
+    <color name="checker_dark">#CBD5E1</color>
+</resources>

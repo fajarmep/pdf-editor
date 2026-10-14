@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_canvas"
+    android:orientation="vertical">
+
+    <!-- Top Action Bar -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/surface_card"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnOpenPdf"
+            style="@style/Widget.PDFEditor.Button.Outlined"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingHorizontal="12dp"
+            android:text="@string/open_pdf"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:icon="@drawable/ic_folder_open"
+            app:iconSize="16dp"
+            app:iconTint="@color/text_primary" />
+
+        <TextView
+            android:id="@+id/tvDocTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_weight="1"
+            android:ellipsize="middle"
+            android:fontFamily="sans-serif-medium"
+            android:singleLine="true"
+            android:text="@string/app_name"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp" />
+
+        <!-- Page Navigator (Hidden when empty) -->
+        <LinearLayout
+            android:id="@+id/pageNavLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPrevPage"
+                style="@style/Widget.PDFEditor.Button.Outlined"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                app:icon="@drawable/ic_chevron_left"
+                app:iconGravity="textStart"
+                app:iconSize="20dp"
+                app:iconTint="@color/text_primary" />
+
+            <TextView
+                android:id="@+id/tvPageIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="6dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="1 / 1"
+                android:textColor="@color/text_primary"
+                android:textSize="12sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNextPage"
+                style="@style/Widget.PDFEditor.Button.Outlined"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:insetLeft="0dp"
+                android:insetTop="0dp"
+                android:insetRight="0dp"
+                android:insetBottom="0dp"
+                android:padding="0dp"
+                app:icon="@drawable/ic_chevron_right"
+                app:iconGravity="textStart"
+                app:iconSize="20dp"
+                app:iconTint="@color/text_primary" />
+        </LinearLayout>
+
+        <!-- Top Right Actions -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUndo"
+            style="@style/Widget.PDFEditor.Button.Outlined"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="4dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            android:visibility="gone"
+            app:icon="@drawable/ic_undo"
+            app:iconGravity="textStart"
+            app:iconSize="18dp"
+            app:iconTint="@color/text_primary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPageTools"
+            style="@style/Widget.PDFEditor.Button.Outlined"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="4dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            android:visibility="gone"
+            app:icon="@drawable/ic_pages"
+            app:iconGravity="textStart"
+            app:iconSize="18dp"
+            app:iconTint="@color/text_primary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            style="@style/Widget.PDFEditor.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="6dp"
+            android:backgroundTint="@color/accent_blue"
+            android:paddingHorizontal="12dp"
+            android:text="@string/save_pdf"
+            android:textColor="@color/on_primary"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:icon="@drawable/ic_save"
+            app:iconSize="16dp"
+            app:iconTint="@color/on_primary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShare"
+            style="@style/Widget.PDFEditor.Button.Outlined"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="4dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            android:padding="0dp"
+            android:visibility="gone"
+            app:icon="@drawable/ic_share"
+            app:iconGravity="textStart"
+            app:iconSize="18dp"
+            app:iconTint="@color/text_primary" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_border" />
+
+    <!-- Center Workspace -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/bg_canvas">
+
+        <!-- Empty State View -->
+        <LinearLayout
+            android:id="@+id/emptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:alpha="0.6"
+                android:src="@drawable/ic_pages"
+                app:tint="@color/text_muted" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="@string/no_pdf_loaded"
+                android:textColor="@color/text_secondary"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSelectFileEmpty"
+                style="@style/Widget.PDFEditor.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="44dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/accent_blue"
+                android:paddingHorizontal="24dp"
+                android:text="@string/open_pdf"
+                android:textColor="@color/on_primary"
+                app:icon="@drawable/ic_folder_open"
+                app:iconSize="18dp"
+                app:iconTint="@color/on_primary" />
+        </LinearLayout>
+
+        <!-- PDF Canvas Editor -->
+        <ScrollView
+            android:id="@+id/pdfScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:visibility="gone">
+
+            <HorizontalScrollView
+                android:id="@+id/pdfHorizontalScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true">
+
+                <FrameLayout
+                    android:id="@+id/canvasContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="16dp">
+
+                    <com.fajar.pdfeditor.ui.PdfCanvasView
+                        android:id="@+id/pdfCanvasView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/surface_card" />
+
+                </FrameLayout>
+            </HorizontalScrollView>
+        </ScrollView>
+
+        <!-- Loading Progress Overlay -->
+        <LinearLayout
+            android:id="@+id/loadingLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/surface_card"
+            android:elevation="4dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:indeterminateTint="@color/accent_blue" />
+
+            <TextView
+                android:id="@+id/tvLoadingMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/exporting_pdf"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <View
+        android:id="@+id/bottomDivider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/color_border" />
+
+    <!-- Bottom Editing Tools Bar -->
+    <HorizontalScrollView
+        android:id="@+id/toolbarScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/surface_card"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="6dp">
+
+            <!-- Move / Select / Touch tool -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToolSelect"
+                style="@style/Widget.PDFEditor.Button.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginEnd="6dp"
+                android:paddingHorizontal="10dp"
+                android:text="Geser"
+                android:textColor="@color/tool_button_tint"
+                android:textSize="12sp"
+                app:backgroundTint="@color/tool_button_bg"
+                app:icon="@drawable/ic_close"
+                app:iconSize="16dp"
+                app:iconTint="@color/tool_button_tint"
+                app:strokeColor="@color/tool_button_stroke" />
+
+            <!-- Signature Tool -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToolSignature"
+                style="@style/Widget.PDFEditor.Button.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginEnd="6dp"
+                android:paddingHorizontal="10dp"
+                android:text="@string/tool_signature"
+                android:textColor="@color/tool_button_tint"
+                android:textSize="12sp"
+                app:backgroundTint="@color/tool_button_bg"
+                app:icon="@drawable/ic_signature"
+                app:iconSize="16dp"
+                app:iconTint="@color/tool_button_tint"
+                app:strokeColor="@color/tool_button_stroke" />
+
+            <!-- Text Box Tool -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToolText"
+                style="@style/Widget.PDFEditor.Button.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginEnd="6dp"
+                android:paddingHorizontal="10dp"
+                android:text="@string/tool_text"
+                android:textColor="@color/tool_button_tint"
+                android:textSize="12sp"
+                app:backgroundTint="@color/tool_button_bg"
+                app:icon="@drawable/ic_text"
+                app:iconSize="16dp"
+                app:iconTint="@color/tool_button_tint"
+                app:strokeColor="@color/tool_button_stroke" />
+
+            <!-- Whiteout Eraser Tool -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToolWhiteout"
+                style="@style/Widget.PDFEditor.Button.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginEnd="6dp"
+                android:paddingHorizontal="10dp"
+                android:text="@string/tool_whiteout"
+                android:textColor="@color/tool_button_tint"
+                android:textSize="12sp"
+                app:backgroundTint="@color/tool_button_bg"
+                app:icon="@drawable/ic_whiteout"
+                app:iconSize="16dp"
+                app:iconTint="@color/tool_button_tint"
+                app:strokeColor="@color/tool_button_stroke" />
+
+            <!-- Pen Tool -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToolPen"
+                style="@style/Widget.PDFEditor.Button.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginEnd="6dp"
+                android:paddingHorizontal="10dp"
+                android:text="@string/tool_pen"
+                android:textColor="@color/tool_button_tint"
+                android:textSize="12sp"
+                app:backgroundTint="@color/tool_button_bg"
+                app:icon="@drawable/ic_pen"
+                app:iconSize="16dp"
+                app:iconTint="@color/tool_button_tint"
+                app:strokeColor="@color/tool_button_stroke" />
+
+            <!-- Highlighter Tool -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToolHighlight"
+                style="@style/Widget.PDFEditor.Button.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginEnd="6dp"
+                android:paddingHorizontal="10dp"
+                android:text="@string/tool_highlight"
+                android:textColor="@color/tool_button_tint"
+                android:textSize="12sp"
+                app:backgroundTint="@color/tool_button_bg"
+                app:icon="@drawable/ic_highlighter"
+                app:iconSize="16dp"
+                app:iconTint="@color/tool_button_tint"
+                app:strokeColor="@color/tool_button_stroke" />
+
+            <!-- Clear Current Page Annotations -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClearPage"
+                style="@style/Widget.PDFEditor.Button.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:paddingHorizontal="10dp"
+                android:text="Hapus Layar"
+                android:textColor="@color/accent_red"
+                android:textSize="12sp"
+                app:icon="@drawable/ic_delete"
+                app:iconSize="16dp"
+                app:iconTint="@color/accent_red"
+                app:strokeColor="@color/color_border" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

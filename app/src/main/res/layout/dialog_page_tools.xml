@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/surface_card"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/tvPageToolsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="Kelola Halaman Aktif"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tvCurrentPageInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Halaman 1 dari 1"
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRotatePage"
+        style="@style/Widget.PDFEditor.Button.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical|start"
+        android:paddingHorizontal="16dp"
+        android:text="@string/rotate_page"
+        android:textColor="@color/text_primary"
+        android:textSize="13sp"
+        app:icon="@drawable/ic_rotate"
+        app:iconSize="20dp"
+        app:iconTint="@color/text_primary" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDeletePage"
+        style="@style/Widget.PDFEditor.Button.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical|start"
+        android:paddingHorizontal="16dp"
+        android:text="@string/delete_page"
+        android:textColor="@color/accent_red"
+        android:textSize="13sp"
+        app:icon="@drawable/ic_delete"
+        app:iconSize="20dp"
+        app:iconTint="@color/accent_red"
+        app:strokeColor="@color/accent_red_light" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnClosePageTools"
+        style="@style/Widget.PDFEditor.Button.Outlined"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="16dp"
+        android:text="Tutup"
+        android:textColor="@color/text_secondary" />
+
+</LinearLayout>

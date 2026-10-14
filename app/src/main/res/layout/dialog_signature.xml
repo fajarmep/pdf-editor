@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/surface_card"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Header Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/signature_title"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp" />
+
+    <!-- Tab Buttons (Direct Draw vs Import Image) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTabDraw"
+            style="@style/Widget.PDFEditor.Button"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/accent_blue"
+            android:text="@string/tab_draw"
+            android:textColor="@color/on_primary"
+            android:textSize="12sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTabImport"
+            style="@style/Widget.PDFEditor.Button.Outlined"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/tab_import"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- TAB 1: Direct Signature Pad View -->
+    <LinearLayout
+        android:id="@+id/layoutTabDraw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/ic_launcher_bg"
+            android:padding="2dp">
+
+            <com.fajar.pdfeditor.ui.SignaturePadView
+                android:id="@+id/signaturePad"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/surface_variant" />
+        </FrameLayout>
+
+        <!-- Ink color & Clear button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tinta:"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <!-- Black Ink -->
+            <View
+                android:id="@+id/colorInkBlack"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:background="#0F172A" />
+
+            <!-- Blue Ink -->
+            <View
+                android:id="@+id/colorInkBlue"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:background="#1E40AF" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClearPad"
+                style="@style/Widget.PDFEditor.Button.Outlined"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="@string/clear_pad"
+                android:textColor="@color/accent_red"
+                android:textSize="11sp"
+                app:strokeColor="@color/accent_red_light" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- TAB 2: Image Import (PNG / JPG with Auto-White Remover) -->
+    <LinearLayout
+        android:id="@+id/layoutTabImport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnPickImage"
+            style="@style/Widget.PDFEditor.Button.Outlined"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="@string/choose_image"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:icon="@drawable/ic_folder_open"
+            app:iconSize="18dp"
+            app:iconTint="@color/text_primary" />
+
+        <!-- Preview Card -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/surface_variant">
+
+            <ImageView
+                android:id="@+id/ivImportPreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/tvNoImageHint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Belum ada gambar terpilih"
+                android:textColor="@color/text_muted"
+                android:textSize="12sp" />
+        </FrameLayout>
+
+        <!-- Auto Transparent Toggle -->
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/cbRemoveWhiteBg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:checked="true"
+            android:text="@string/remove_white_bg"
+            android:textColor="@color/text_primary"
+            android:textSize="13sp" />
+
+        <!-- Threshold Sensitivity Slider -->
+        <LinearLayout
+            android:id="@+id/layoutThreshold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/white_sensitivity"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvThresholdVal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="235"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/sliderThreshold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:value="235"
+                android:valueFrom="180"
+                android:valueTo="255"
+                android:stepSize="1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Dialog Bottom Actions -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancelSignature"
+            style="@style/Widget.PDFEditor.Button.Outlined"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/cancel"
+            android:textColor="@color/text_secondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApplySignature"
+            style="@style/Widget.PDFEditor.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/accent_blue"
+            android:text="@string/apply_signature"
+            android:textColor="@color/on_primary" />
+    </LinearLayout>
+
+</LinearLayout>
