@@ -477,10 +477,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
         if (name == null) {
-            name = uri.path
-            val cut = name?.lastIndexOf('/')
-            if (cut != null && cut != -1) {
-                name = name.substring(cut + 1)
+            val path = uri.path
+            val cut = path?.lastIndexOf('/')
+            name = if (cut != null && cut != -1) {
+                path.substring(cut + 1)
+            } else {
+                path
             }
         }
         return name
